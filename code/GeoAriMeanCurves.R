@@ -80,11 +80,11 @@ plot_sr <- function(data, legend_title) {
          bty="n", cex=0.8)
 }
 #### Beverton-Holt model ####
-bh_sr <- sim_sr(geomR0=1000, geomh=0.75, phi0=0.10, sigmaR=0.6,
+bh_sr <- sim_sr(geomR0=1000, geomh=0.75, phi0=0.01025625, sigmaR=0.6,
                 SRmodel=1, n=100, seed=111)
 
 #### Ricker model ####
-ricker_sr <- sim_sr(geomR0=1000, geomh=0.75, phi0=0.10, sigmaR=0.6,
+ricker_sr <- sim_sr(geomR0=1000, geomh=0.75, phi0=0.01025625, sigmaR=0.6,
                     SRmodel=2, n=100, seed=111)
 
 #### Plot outputs ####
