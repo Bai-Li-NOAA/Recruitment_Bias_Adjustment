@@ -17,7 +17,7 @@ sim_sr <- function(geomR0, geomh, phi0, sigmaR, SRmodel, n, seed=111) {
   ## geomR0: virgin recruitment that is associated with geometric mean curve of recruitment
   ## geomh: steepness that is associated with geometric mean curve of recruitment
   ## phi0: unfished spawning biomass per recruit
-  ## sigmaR: Standard deviation of log recruitment
+  ## sigmaR: standard deviation of log recruitment
   ## SRmodel: spawner-recruit model
   ##          =1: Beverton-Holt model
   ##          =2: Ricker model
