@@ -49,19 +49,20 @@ sim_sr <- function(geomR0, geomh, phi0, sigmaR, SRmodel, n, seed=111) {
 }
 
 #### plot_sr function ####
-plot_sr <- function(recruits) {
-  xlim <- range(recruits$Svec)
-  ylim <- range(recruits$Rvec_arim, recruits$Rvec_geom, recruits$Rvec_obs)
-  plot(recruits$Svec, recruits$Rvec_obs,
+plot_sr <- function(data, legend_title) {
+  xlim <- range(data$Svec)
+  ylim <- range(data$Rvec_arim, data$Rvec_geom, data$Rvec_obs)
+  plot(data$Svec, data$Rvec_obs,
        xlab="SSB", ylab="R",
        xlim=xlim, ylim=ylim,
        col="gray", pch=19, cex=0.5)
-  lines(recruits$Svec, recruits$Rvec_geom,
+  lines(data$Svec, data$Rvec_geom,
         col="red", lty=2)
-  lines(recruits$Svec, recruits$Rvec_arim,
+  lines(data$Svec, data$Rvec_arim,
         col="deepskyblue3", lty=3)
   legend("topleft",
-         c("Observed R", "Geometric Mean", "Arithmetic Mean"),
+         title=legend_title,
+         legend=c("Observed R", "Geometric Mean", "Arithmetic Mean"),
          pch=c(19, NA, NA),
          lty=c(NA, 2, 3),
          col=c("gray", "red", "deepskyblue3"),
@@ -78,7 +79,7 @@ ricker_sr <- sim_sr(geomR0=1000, geomh=0.75, phi0=0.10, sigmaR=0.6,
 #### Plot outputs ####
 jpeg(file=file.path(dir, "results", "figures", "geom_arim_curves.jpg"), width=200, height=80, units="mm", res=1200)
 par(mfrow=c(1,2), mar=c(4,4,1,1))
-plot_sr(bh_sr)
-plot_sr(ricker_sr)
+plot_sr(data=bh_sr, legend_title="B-H Model")
+plot_sr(data=ricker_sr, legend_title="Ricker Model")
 dev.off()
 
