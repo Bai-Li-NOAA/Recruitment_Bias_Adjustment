@@ -1,8 +1,8 @@
 Recruitment Bias Adjustment
 ================
 
-1. Geometric and arithmetic mean curves of recruitment
 ------------------------------------------------------
+1. Geometric and arithmetic mean curves of recruitment
 
 Median-unbiased unfished recruitment: 1000000 number of fish\
 Median-unbiased steepness: 0.75\
@@ -11,8 +11,8 @@ Standard deviation of log recruitment: 0.6
 
 ![Fig 1. Geometric and arithmetic mean curves of recruitment.](./figures/geom_arim_curves.jpg) Fig 1. Geometric and arithmetic mean curves of recruitment.
 
-2. Parameters associated with geometric and arithmetic mean curves of recruitment
 ------------------------------------------------------
+2. Parameters associated with geometric and arithmetic mean curves of recruitment
 
 Calculate corresponding mean-unbiased steepness given a fixed median-unbiased steepness and sigmaR:
 
