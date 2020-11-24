@@ -17,3 +17,13 @@ Standard deviation of log recruitment: 0.6
 Calculate corresponding mean-unbiased steepness given a fixed median-unbiased steepness and sigmaR:
 
 ![Fig 2. Median- and mean-unbiased steepness over various levels of recruitment variability.](./figures/geom_arim_parameters.jpg) Fig 2. Median- and mean-unbiased steepness over various levels of recruitment variability.
+
+------------------------------------------------------
+3. Relative errors
+
+Calculate corresponding mean-unbiased steepness given a fixed median-unbiased steepness and sigmaR:
+
+![Fig 3. Relative error in MSY.](./figures/RE in MSY.jpg) 
+![Fig 3. Relative error in FMSY.](./figures/RE in FMSY.jpg)
+![Fig 3. Relative error in SSBMSY.](./figures/RE in SSBMSY.jpg)
+Fig 3. Relative error in MSY, FMSY, and SSBMSY.
