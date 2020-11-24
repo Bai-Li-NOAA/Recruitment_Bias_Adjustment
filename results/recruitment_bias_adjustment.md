@@ -21,8 +21,6 @@ Calculate corresponding mean-unbiased steepness given a fixed median-unbiased st
 ------------------------------------------------------
 3. Relative errors
 
-Calculate corresponding mean-unbiased steepness given a fixed median-unbiased steepness and sigmaR:
-
 ![Fig 3A. Relative error in MSY.](./figures/RE_in_MSY.jpg) Fig 3A. Relative error in MSY.
 
 ![Fig 3B. Relative error in FMSY.](./figures/RE_in_FMSY.jpg) Fig 3B. Relative error in FMSY.  
