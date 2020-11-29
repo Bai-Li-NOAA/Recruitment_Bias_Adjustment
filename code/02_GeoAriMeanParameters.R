@@ -71,7 +71,8 @@ plot_conversion_matrix <- function(data){
          legend=paste("sigmaR =", sigmaR_vec),
          col=col,
          lty=1:length(sigmaR_vec),
-         bty="n")
+         bty="n",
+         cex=0.8)
 
   ## Ricker model
   plot(x=data$geomh_vec[which(data$sigmaR_vec==unique_sigmaR[1])],
@@ -90,7 +91,8 @@ plot_conversion_matrix <- function(data){
          legend=paste("sigmaR =", sigmaR_vec),
          col=col,
          lty=1:length(sigmaR_vec),
-         bty="n")
+         bty="n",
+         cex=0.8)
 }
 
 #### Conversion over a range of steepness and recruitment variations ####
