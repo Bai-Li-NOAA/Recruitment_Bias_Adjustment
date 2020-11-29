@@ -28,6 +28,6 @@ Calculate corresponding mean-unbiased steepness given a fixed median-unbiased st
 ![Fig 3C. Relative error in SSBMSY.](./figures/RE_in_SSBMSY.jpg) Fig 3C. Relative error in SSBMSY.    
 
 ------------------------------------------------------
-4. SSB, R, F, Relative SSB (Rel SSB), and Relative F (Rel F)
+4. Median SSB, R, F, Relative SSB (Rel SSB), and Relative F (Rel F) over time
 
-![Fig 4. SSB, R, F, Rel SSB, and Rel F from OM and EMs.](./figures/ssb_r_f.jpg) Fig 4. SSB, R, F, Rel SSB, and Rel F from OM and EMs.
+![Fig 4. Median SSB, R, F, Rel SSB, and Rel F over time from OM and EMs.](./figures/ssb_r_f.jpg) Fig 4. Median SSB, R, F, Rel SSB, and Rel F over time from OM and EMs.
