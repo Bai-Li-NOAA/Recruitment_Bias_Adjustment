@@ -1,10 +1,5 @@
-# install.packages("flextable")
-# install.packages("officer")
-
 library(rstudioapi)
 library(ggplot2)
-library(flextable)
-library(officer)
 
 dir <- dirname(dirname(rstudioapi::getActiveDocumentContext()$path))
 setwd(dir)
