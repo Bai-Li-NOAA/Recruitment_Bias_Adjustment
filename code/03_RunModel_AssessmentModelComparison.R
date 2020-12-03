@@ -11,6 +11,9 @@
 # install.packages("doParallel")
 # install.packages("foreach")
 
+# setwd("C:/Users/bai.li/Documents/Github/Age_Structured_Stock_Assessment_Model_Comparison/")
+# devtools::load_all()
+
 library(readxl)
 library(PBSadmb)
 library(ASAPplots)
@@ -162,7 +165,6 @@ generate_plot(em_names = c("AMAK", "ASAP", "BAM", "SS"),
 ## No adhoc bias adjustment in AMAK and ASAP
 ## BAM input steepness = mean-unbiased steepness = 0.7822135
 ## SS input steepness = mean-unbiased steepness = 0.7822135
-
 case3 <- save_initial_input(base_case=FALSE,
                             input_list=case1,
                             case_name="C3",
@@ -205,10 +207,10 @@ generate_plot(em_names = c("AMAK", "ASAP", "BAM", "SS"),
 ## BAM input steepness = median-unbiased steepness = 0.75
 ## SS input steepness = median-unbiased steepness = 0.75
 case5 <- save_initial_input(base_case=FALSE,
-                                    input_list=case1,
-                                    SRmodel=2,
-                                    om_sim_num=250,
-                                    case_name="C5")
+                            input_list=case1,
+                            SRmodel=2,
+                            om_sim_num=250,
+                            case_name="C5")
 
 print(paste("AMAK h =", exp(case5$median_h)/(4+exp(case5$median_h))))
 
@@ -249,10 +251,9 @@ generate_plot(em_names = c("AMAK", "BAM", "SS"),
 case7 <- save_initial_input(base_case=FALSE,
                             input_list=case1,
                             SRmodel=2,
-                            bias_cor_method="mean_unbiased",
                             om_sim_num=250,
+                            bias_cor_method="mean_unbiased",
                             case_name="C7")
-
 
 run_om(input_list=case7, show_iter_num=F)
 SRBC <- convertSRparms(R0=case7$median_R0,
@@ -277,8 +278,8 @@ generate_plot(em_names = c("AMAK", "BAM", "SS"),
 case8 <- save_initial_input(base_case=FALSE,
                             input_list=case1,
                             SRmodel=2,
-                            bias_cor_method="mean_unbiased",
                             om_sim_num=250,
+                            bias_cor_method="mean_unbiased",
                             case_name="C8")
 
 
@@ -292,7 +293,6 @@ generate_plot(em_names = c("AMAK", "BAM", "SS"),
               plot_color = c("orange", "red", "deepskyblue3"),
               input_list=case8,
               adhoc_bias_cor=TRUE)
-
 
 #### Additional Case (AMAK_No initial F) ####
 print(paste("AMAK h =", exp(base_case_input$median_h)/(4+exp(base_case_input$median_h))))

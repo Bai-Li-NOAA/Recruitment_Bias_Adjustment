@@ -1,5 +1,10 @@
+# install.packages("flextable")
+# install.packages("officer")
+
 library(rstudioapi)
 library(ggplot2)
+library(flextable)
+library(officer)
 
 dir <- dirname(dirname(rstudioapi::getActiveDocumentContext()$path))
 setwd(dir)
@@ -98,4 +103,41 @@ p <- ggplot(data=plot_data, aes(x=year, y=value, color=model_name_f)) +
   theme(legend.title = element_blank())
 print(p+scale_color_manual(values = c("gray30", "orange", "green", "red", "deepskyblue3")))
 dev.off()
+
+#### Plot parameter estimates ####
+case_num <- 1:4
+em_name <- c("AMAK", "ASAP", "BAM", "SS")
+output_file <- c("om_output.RData",
+                 "amak_output.RData",
+                 "asap_output.RData",
+                 "bam_output.RData",
+                 "ss_output.RData")
+bh_data <- parameter_estimates_data(dir=dir,
+                                    case_num=case_num,
+                                    em_name=em_name,
+                                    output_file=output_file)
+
+output_file <- c("om_output.RData",
+                 "amak_output.RData",
+                 "bam_output.RData",
+                 "ss_output.RData")
+em_name <- c("AMAK", "BAM", "SS")
+case_num <- 5:8
+ricker_data <- parameter_estimates_data(dir=dir,
+                                        case_num=case_num,
+                                        em_name=em_name,
+                                        output_file=output_file)
+
+table_data <- rbind(t(bh_data$estimates_output$case1[c("geomR0", "geomS0", "geomDf"),]),
+                    t(bh_data$estimates_output$case2[c("geomR0", "geomS0", "geomDf"),]),
+                    t(bh_data$estimates_output$case3[c("arimR0", "arimS0", "arimDf"),]),
+                    t(bh_data$estimates_output$case4[c("arimR0", "arimS0", "arimDf"),]),
+                    t(ricker_data$estimates_output$case5[c("geomR0", "geomS0", "geomDf"),]),
+                    t(ricker_data$estimates_output$case6[c("geomR0", "geomS0", "geomDf"),]),
+                    t(ricker_data$estimates_output$case7[c("arimR0", "arimS0", "arimDf"),]),
+                    t(ricker_data$estimates_output$case8[c("arimR0", "arimS0", "arimDf"),]))
+
+write.csv(table_data, file=file.path(dir, "results", "R0_S0_Df_estimates.csv"))
+
+
 
