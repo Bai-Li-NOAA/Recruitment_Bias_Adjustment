@@ -27,7 +27,7 @@ ConceptPage <- tabPanel(
       numericInput(inputId = "sigmaR",
                    label = "sigmaR:",
                    value = 0.8),
-      numericInput(inputId = "nyear",
+      numericInput(inputId = "n",
                    label = "Number of data (n):",
                    value = 1000)
     ),

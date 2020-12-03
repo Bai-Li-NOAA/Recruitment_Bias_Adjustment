@@ -21,7 +21,7 @@ RecruitBiasAdjustmentUI <- shinyUI(
   }
 )
 
-myserver <- function(input,output,session){
+RecruitBiasAdjustmentServer <- function(input,output,session){
   output$GeoAriCurves_table <- renderTable(
     {
       bh_sr <- sim_sr(geomR0=input$geomR0,
@@ -29,17 +29,17 @@ myserver <- function(input,output,session){
                       phi0=input$phi0,
                       sigmaR=input$sigmaR,
                       SRmodel=1,
-                      n=input$nyear, seed=111)
+                      n=input$n, seed=111)
       ricker_sr <- sim_sr(geomR0=input$geomR0,
                           geomh=input$geomh,
                           phi0=input$phi0,
                           sigmaR=input$sigmaR,
                           SRmodel=2,
-                          n=input$nyear, seed=111)
+                          n=input$n, seed=123)
       matrix_data <- matrix(c(bh_sr$arimR0, ricker_sr$arimR0,
                               bh_sr$arimh, ricker_sr$arimh),
-                             ncol=2,
-                             byrow=FALSE)
+                            ncol=2,
+                            byrow=FALSE)
       rownames(matrix_data) <- c("Beverton-Holt", "Ricker")
       colnames(matrix_data) <- c("arimR0", "arimh")
       matrix_data
@@ -52,13 +52,13 @@ myserver <- function(input,output,session){
                       phi0=input$phi0,
                       sigmaR=input$sigmaR,
                       SRmodel=1,
-                      n=input$nyear, seed=111)
+                      n=input$n, seed=111)
       ricker_sr <- sim_sr(geomR0=input$geomR0,
                           geomh=input$geomh,
                           phi0=input$phi0,
                           sigmaR=input$sigmaR,
                           SRmodel=2,
-                          n=input$nyear, seed=111)
+                          n=input$n, seed=123)
       par(mfrow=c(1,2))
       plot_sr(data=bh_sr, legend_title="Beverton-Holt Model")
       plot_sr(data=ricker_sr, legend_title="Ricker Model")
@@ -68,5 +68,5 @@ myserver <- function(input,output,session){
 
 shinyApp(
   ui = RecruitBiasAdjustmentUI,
-  server = myserver
+  server = RecruitBiasAdjustmentServer
 )
