@@ -1,15 +1,16 @@
 #### Geometric and Arithmetic mean curves of recruitment comparison
 
 #### Install and load packages ####
-# remotes::install_github("Bai-Li-NOAA/Age_Structured_Stock_Assessment_Model_Comparison")
+remotes::install_github("Bai-Li-NOAA/Age_Structured_Stock_Assessment_Model_Comparison")
 # install.packages("rstudioapi") # Get location of the script
 library(ASSAMC) # Use convertSRparms function to convert median-unbiased parameters to mean-unbiased parameters, or vice versa
-library(rstudioapi)
+# library(rstudioapi)
 
 #### Set working directory ####
-dir <- dirname(dirname(rstudioapi::getActiveDocumentContext()$path))
-setwd(dir)
-getwd()
+# dir <- dirname(dirname(rstudioapi::getActiveDocumentContext()$path))
+# setwd(dir)
+# getwd()
+# setwd(getwd())
 
 #### sim_sr function ####
 #### Computes spawning stock biomass vector, geometric and arithmetic mean curves of recruitment, and observed recruits
