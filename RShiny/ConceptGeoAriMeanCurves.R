@@ -1,6 +1,7 @@
 #### Geometric and Arithmetic mean curves of recruitment comparison
 
 #### Install and load packages ####
+install.packages("remote")
 remotes::install_github("Bai-Li-NOAA/Age_Structured_Stock_Assessment_Model_Comparison")
 # install.packages("rstudioapi") # Get location of the script
 library(ASSAMC) # Use convertSRparms function to convert median-unbiased parameters to mean-unbiased parameters, or vice versa
