@@ -1,5 +1,6 @@
 library(shiny)
-library(shinythemes)
+library(nmfspalette)
+# library(shinythemes)
 
 source("ConceptText.R")
 source("ConceptPage.R")
@@ -9,11 +10,14 @@ source("ConceptGeoAriMeanCurves.R")
 RecruitBiasAdjustmentUI <- shinyUI(
   {
     fluidPage(
-      theme = shinytheme("cerulean"),
-      titlePanel("Spawner-Recruit Parameters Converter"),
-      h4("For recruitment bias adjustment"),
+      # theme = shinytheme("cerulean"),
+      theme = "nmfs-styles.css",
+      # titlePanel("Spawner-Recruit Parameters Converter"),
+      h1("Spawner-Recruit Parameters Converter"),
+      h2("For recruitment bias adjustment"),
       navbarPage(
         title = " ",
+        # theme = "nmfs-styles.css",
         ConceptPage,
         ConverterPage
       )

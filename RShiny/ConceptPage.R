@@ -1,6 +1,6 @@
 ConceptPage <- tabPanel(
 
-  title="Concept",
+  title = h3("Concept"),
 
   fluidRow(
     column(
@@ -12,7 +12,7 @@ ConceptPage <- tabPanel(
   fluidRow(
     column(
       width=4,
-      h4("Inputs:"),
+      h3("Inputs:"),
       numericInput(inputId = "geomR0",
                    label = "geomR0:",
                    value = 1000000),
@@ -34,7 +34,7 @@ ConceptPage <- tabPanel(
 
     column(
       width=8,
-      h4("Outputs:"),
+      h3("Outputs:"),
       uiOutput("GeoAriCurves_table"),
       plotOutput("GeoAriCurves_figure")
     )

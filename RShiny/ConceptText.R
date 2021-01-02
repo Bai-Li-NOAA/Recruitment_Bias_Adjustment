@@ -1,4 +1,6 @@
 ConceptText <- wellPanel(
+  style = "background: transparent;",
+
   p(strong("What is recruitment bias adjustment and why?")),
 
   p("- Fisheries stock assessment packages usually model variability in recruitment using a lognormal distribution. The recruitment deviation (r) is assumed to have a normal distribution, so that exp(r) is lognormally distributed."),
