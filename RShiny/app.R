@@ -2,6 +2,7 @@ library(shiny)
 library(nmfspalette)
 # library(shinythemes)
 
+source("convertSRparams.R")
 source("ConceptText.R")
 source("ConceptPage.R")
 source("ConverterPage.R")
