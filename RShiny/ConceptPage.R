@@ -1,6 +1,8 @@
 ConceptPage <- tabPanel(
 
   title = h3("Concept"),
+  
+  withMathJax(), 
 
   fluidRow(
     column(
@@ -8,35 +10,26 @@ ConceptPage <- tabPanel(
       ConceptText
     )
   ),
-
+  
   fluidRow(
     column(
       width=4,
-      h3("Inputs:"),
-      numericInput(inputId = "geomR0",
-                   label = "geomR0:",
-                   value = 1000000),
-      numericInput(inputId = "geomh",
-                   label = "geomh:",
-                   value = 0.75,
-                   min=0.21,
-                   max=1),
-      numericInput(inputId = "phi0",
-                   label = "phi0:",
-                   value = 0.01025625),
-      numericInput(inputId = "sigmaR",
-                   label = "sigmaR:",
-                   value = 0.8),
-      numericInput(inputId = "n",
+      h3("Input Values:"),
+      numericInput(inputId = "DemoMean",
+                   label = "Mean of $r$:",
+                   value = 0),
+      numericInput(inputId = "DemoSigmaR",
+                   label = "$\\sigma_{R}$ of $r$ :",
+                   value = 0.75),
+      numericInput(inputId = "DemoN",
                    label = "Number of data (n):",
                    value = 1000)
     ),
-
+    
     column(
       width=8,
-      h3("Outputs:"),
-      uiOutput("GeoAriCurves_table"),
-      plotOutput("GeoAriCurves_figure")
+      h3("Output Figures:"),
+      plotOutput("Demo_figure")
     )
   )
 )

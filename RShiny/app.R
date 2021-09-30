@@ -1,32 +1,45 @@
 library(shiny)
-library(nmfspalette)
-# library(shinythemes)
 
-source("convertSRparams.R")
-source("ConceptText.R")
+source("ConceptDetails.R")
 source("ConceptPage.R")
-source("ConverterPage.R")
-source("ConceptGeoAriMeanCurves.R")
+
+source("ConversionDetails.R")
+source("ConversionPage.R")
+
+source("DerivationPage.R")
+
+source("ConceptDemo.R")
+source("convertSRparams.R")
+source("GeoAriMeanCurves.R")
 
 RecruitBiasAdjustmentUI <- shinyUI(
   {
     fluidPage(
-      # theme = shinytheme("cerulean"),
       theme = "nmfs-styles.css",
-      # titlePanel("Spawner-Recruit Parameters Converter"),
-      h1("Spawner-Recruit Parameters Converter"),
-      h2("For recruitment bias adjustment"),
+      
+      titlePanel("Recruitment Bias Adjustment"),
+
       navbarPage(
         title = " ",
-        # theme = "nmfs-styles.css",
         ConceptPage,
-        ConverterPage
+        ConversionPage,
+        DerivationPage
       )
     )
   }
 )
 
 RecruitBiasAdjustmentServer <- function(input,output,session){
+  output$Demo_figure <- renderPlot(
+    {
+      demo_output <- demo_data(DemoMean=input$DemoMean, 
+                               DemoSigmaR=input$DemoSigmaR, 
+                               DemoN=input$DemoN)
+      par(mfrow=c(1,2))
+      plot_demo(data=demo_output)
+    }
+  )
+  
   output$GeoAriCurves_table <- renderTable(
     {
       bh_sr <- sim_sr(geomR0=input$geomR0,
@@ -44,12 +57,13 @@ RecruitBiasAdjustmentServer <- function(input,output,session){
       matrix_data <- matrix(c(bh_sr$arimR0, ricker_sr$arimR0,
                               bh_sr$arimh, ricker_sr$arimh),
                             ncol=2,
-                            byrow=FALSE)
-      rownames(matrix_data) <- c("Beverton-Holt", "Ricker")
-      colnames(matrix_data) <- c("arimR0", "arimh")
-      matrix_data
-    }, rownames = TRUE
+                            byrow=TRUE)
+      colnames(matrix_data) <- c("Beverton-Holt", "Ricker")
+      matrix_data <- data.frame(matrix_data, 
+                                row.names = c("Mean-unbiased R<sub>0<sub>", "Mean-unbiased h"))
+    }, rownames = TRUE, sanitize.text.function = function(x) x
   )
+  
   output$GeoAriCurves_figure <- renderPlot(
     {
       bh_sr <- sim_sr(geomR0=input$geomR0,
