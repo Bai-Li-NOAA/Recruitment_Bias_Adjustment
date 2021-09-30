@@ -1,6 +1,5 @@
 # Recruitment_Bias_Adjustment
 
-```
 Beverton-Holt and Ricker stock-recruitment models have been widely used in fisheries population dynamics. A lognormal error is often assumed in those stock-recruitment analyses. In this R Shiny App, we demonstrate that a bias results when a stock-recruitment model with lognormal error is used. We also provide R functions for converting unfished recruitment and steepness between two methods of bias adjustment. 
 
 ## Disclaimer
