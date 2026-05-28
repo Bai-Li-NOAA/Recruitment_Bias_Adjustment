@@ -1,5 +1,5 @@
 
-# Demo data ---------------------------------------------------------
+# Demo data section ---------------------------------------------------------
 demo_data <- function(DemoMean, DemoSigmaR, DemoN) {
   set.seed(1)
   norm_vec <- rnorm(n = DemoN, mean = DemoMean, sd = DemoSigmaR)
