@@ -14,7 +14,7 @@ ConceptPage <- tabPanel(
   fluidRow(
     column(
       width=4,
-      h3("Input Values:"),
+      h3("test:Input Values:"),
       numericInput(inputId = "DemoMean",
                    label = "Mean of $r$:",
                    value = 0),
